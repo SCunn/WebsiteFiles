@@ -1,0 +1,68 @@
+
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+
+<script>
+const area = document.getElementById("area");
+
+const state = {
+  throttled: {
+    x: 0,
+    y: 0,
+  },
+  debounced: {
+    x: 0,
+    y: 0,
+  }
+}
+
+area.addEventListener("mousemove", coordUpdater("r"));
+area.addEventListener("mousemove", throttled(200, coordUpdater("t")));
+area.addEventListener("mousemove", debounced(200, coordUpdater("d")));
+
+function handler(e) {
+  mouseToState(e);
+  updateDisp(e);
+}
+
+function coordUpdater(prefix) {
+  const x = document.getElementById(`${prefix}x`);
+  const y = document.getElementById(`${prefix}y`);
+  return function (e) {
+    x.innerText = e.clientX;
+    y.innerText = e.clientY;
+  }
+}  
+
+function throttled(delay, fn) {
+  let lastCall = 0;
+  return function (...args) {
+    const now = (new Date).getTime();
+    if (now - lastCall < delay) {
+      return;
+    }
+    lastCall = now;
+    return fn(...args);
+  }
+}
+
+function debounced(delay, fn) {
+  let timerId;
+  return function (...args) {
+    if (timerId) {
+      clearTimeout(timerId);
+    }
+    timerId = setTimeout(() => {
+      fn(...args);
+      timerId = null;
+    }, delay);
+  }
+}
+
+ </script>
+</body>
+
+</html>
