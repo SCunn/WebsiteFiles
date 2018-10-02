@@ -1,1 +1,1 @@
-# this is my website currently under construction
+# This is my website currently under construction
