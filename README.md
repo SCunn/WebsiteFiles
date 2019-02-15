@@ -1,1 +1,1 @@
-# This is my website currently under construction
+# This Git contains files relating to my personal website
