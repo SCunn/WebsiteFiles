@@ -56,6 +56,7 @@ b,
 strong {
 	font-weight: bold;
 	float: left;
+	color: whitesmoke;
 }
 dfn {
   font-style: italic;
@@ -1195,10 +1196,10 @@ h6,
 .h4,
 .h5,
 .h6 {
-  /* font-family: inherit; */
+  
   font-weight: 500;
   line-height: 1.1;
-  color: inherit;
+  
 }
 h1 small,
 h2 small,
