@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <!-- <meta charset="utf-8"> -->
+  <title>New Example</title>
+  <style>
+  .box {
+  	margin:30px;
+  	height: 50px;
+  	width: 50px;
+  	background-color: black;
+  }
+  .box.horizTranslate {
+  	-webkit-transition: 3s;
+  -moz-transition: 3s;
+  -ms-transition: 3s;
+  -o-transition: 3s;
+  transition: 3s;
+  transform: translateX(100%) !important;
+  }
+  .box.left {
+  	-webkit-transition: 3s;
+  -moz-transition: 3s;
+  -ms-transition: 3s;
+  -o-transition: 3s;
+  transition: 3s;
+  transform: translateX(-100%) !important;
+  }
+  </style>
+</head>
+
+<div class='box'></div>
+<button class='toggleButton'>Prev</button>
+<button class='toggleButton' value='play'>Play</button>
+
+<script>
+	var boxOne = document.getElementsByClassName('box')[0];
+
+	document.getElementsByClassName('toggleButton')[0].onclick = function(){
+		if(this.innerHTML === 'Play'){
+			//this.innerHTML === 'Pause';
+			boxOne.classList.add('horizTranslate');
+		}else{
+			this.innerHTML ='Play';
+			var computedStyle = window.getComputedStyle(boxOne), 
+			marginLeft = computedStyle.getPropertyValue('transform');
+			boxOne.style.marginLeft = marginLeft;
+			boxOne.classList.remove('horizTranslate');
+		}
+	}
+	document.getElementsByClassName('toggleButton')[0].onclick = function(){
+		if(this.innerHTML === 'Prev'){
+			boxOne.classList.add('left');
+		}else{
+			this.innerHTML = 'Prev';
+			translateXLeft = computedStyle.getPropertyValue('transform');
+			boxOne.style.translateXLeft = translateXLeft;
+			boxOne.classList.add('left');
+		}
+	}
+	  
+	
+
+</script>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wzzIRcZzIvY" frameborder="0" allowfullscreen></iframe>
+
+<script>
+
+function myFunction(x) {
+	if (x.matches) {
+    	document.body.iframe.width = "560";
+    } else {
+    	document.body.iframe.width = "100%";
+        }
+}
+
+var x = window.matchMedia("(min-width: 500px)");
+myFunction(x);
+x.addListener(myFunction);
+</script>
+
+
+
+</body>
+</html> 

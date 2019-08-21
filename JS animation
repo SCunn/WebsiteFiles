@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>New Example</title>
+  <style>
+  .box {
+  margin:
+  }
+  .box.horizTranslate {}
+  </style>
+</head>
+<body>
+<div class='box'></div>
+<button class='toggleButton' value='play'>Play</button>
+
+<script>
+
+</script>
+</body>
+</html>

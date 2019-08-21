@@ -1,0 +1,48 @@
+#N canvas 662 36 664 613 10;
+#X obj 135 284 phasor~ 300;
+#X obj 317 286 phasor~ 331;
+#X obj 210 349 +~;
+#X obj 222 446 *~ 0.1;
+#X obj 316 316 -~ 0.5;
+#X obj 155 306 -~ 0.5;
+#X obj 231 527 dac~;
+#X obj 383 400 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 210 375 bp~ 660 3;
+#X obj 333 31 netreceive -u 8000;
+#X obj 239 63 oscparse;
+#X obj 107 162 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 3200 1;
+#X floatatom 128 109 5 0 0 0 - - -, f 5;
+#X obj 129 129 / 100;
+#X obj 235 93 unpack f f;
+#X floatatom 348 114 5 0 0 0 - - -, f 5;
+#X obj 353 163 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 4100 1;
+#X obj 348 133 / 100;
+#X obj 362 67 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 176 18 oscformat /lerpX;
+#X obj 61 18 oscformat /lerpY;
+#X connect 0 0 5 0;
+#X connect 1 0 4 0;
+#X connect 2 0 8 0;
+#X connect 3 0 6 0;
+#X connect 3 0 6 1;
+#X connect 4 0 2 1;
+#X connect 5 0 2 0;
+#X connect 7 0 3 1;
+#X connect 8 0 3 0;
+#X connect 9 0 10 0;
+#X connect 9 0 18 0;
+#X connect 10 0 14 0;
+#X connect 11 0 0 0;
+#X connect 12 0 13 0;
+#X connect 13 0 11 0;
+#X connect 14 0 12 0;
+#X connect 14 1 15 0;
+#X connect 15 0 17 0;
+#X connect 16 0 1 0;
+#X connect 17 0 16 0;
+#X connect 19 0 10 0;
+#X connect 20 0 10 0;

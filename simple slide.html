@@ -1,0 +1,68 @@
+<!Doctype HTML>   <!-- video saved at 07:55 -->
+<html> 
+<head>
+	<style>
+		body {
+			text-align: center;
+		}
+		body*{
+			margin: 20px auto;
+			font-size: 20pt;
+		}
+		#images div {
+			background-color: cornflowerblue;
+			text-align: center;
+			width: 200px;
+			height: 200px;
+			font-size: 40pt;
+			line-height: 200px;
+		}
+	</style>	
+</head>
+<body>
+	<div id="images">
+		<div class="carousel">1</div>
+		<div class="carousel">2</div>
+		<div class="carousel">3</div>
+		<div class="carousel">4</div>
+	</div>
+	
+			<button onclick="carouselImgs.prev('slidePrev');">prev</button>
+			<button onclick="carouselImgs.next('slideNxt');">next</button>
+			<button onclick="carouselImgs.slide(0);">slide 1</button>
+			<button onclick="carouselImgs.slide(2);">slide 3</button>
+		
+	<script>
+		function Carousel(containerID) {
+			this.container = document.getElementById(containerID) || document.body;
+			this.slides = this.container.querySelectorAll('.carousel');
+			this.total = this.slides.length - 1;
+			this.current = 0;
+			// start on slide 1
+			this.slide(this.current);
+		};
+		//Stop Playing
+		Carousel.prototype.stop = function () {
+			clearTimeout(this.run);
+		}
+		// select slide
+		Carousel.prototype.slide = function (index) {// index = 0
+			if (index >= 0 && index <= this.total) {
+				this.stop();
+				for (var s = 0; s <= this.total; s++) {
+					if (s === index) {
+						this.slides[s].style.display = "inline-block";
+					} else {
+						this.slides[s].style.display = "none";
+					}
+				}
+			}
+		};
+	</script>
+
+	<script>
+		var carouselImgs = new Carousel();
+	</script>
+</body>
+
+</html>

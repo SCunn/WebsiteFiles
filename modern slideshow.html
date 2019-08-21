@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	.body {
+		margin: 20px;
+		padding: 0;
+		background: #333;
+	}
+	.container {
+		max-width: 760px;
+		margin: auto;
+		border: #fff solid 3px;
+		background: #fff;
+	}
+	.main-img img,
+	.imgs img,
+	.slideImgs img {
+		width: 100%;
+
+	}
+	.main-img img{
+		/*display: none;*/
+	}
+	.imgs {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap:5px;
+	}
+	.active2 {
+		float:none;
+	}
+	.active2 .slideImgs img {
+		position: absolute;
+      	opacity: 0;
+      	transform: scaleX(0);
+     	transition: 1s;
+      	z-index: -1;
+	}
+	.active2 .slideImgs img.currentImg {
+		opacity: 1;
+        transform: scaleX(1);
+        transition: 1s; 
+	}
+
+</style>
+<body>
+	
+	<div class="container active2">
+
+		<div class="main-img">
+			<img src="Images/fountain.JPG" id="current">
+			<div class="slideImgs"  >
+			<img src="Images/fountain.JPG">
+			<img src="Images/bridge.JPG">
+			<img src="Images/thomondgate5.JPG">
+			<img src="Images/distortion edit.jpg">
+		</div>
+			<span class="close cursor" id="current" onclick="closeModal()">&times;</span>
+		</div>
+		
+</div>
+		<div class="imgs">
+			<img src="Images/fountain.JPG" onclick="openModal();">
+			<img src="Images/bridge.JPG" onclick="openModal();">
+			<img src="Images/thomondgate5.JPG" onclick="openModal();">
+			<img src="Images/distortion edit.jpg" onclick="openModal();">
+		</div>
+			
+
+	
+	<script>
+		function debounced(delay, fn) {
+        let timerId;
+        return function (...args) {
+          if (timerId) {
+            clearTimeout(timerId);
+          }
+          timerId = setTimeout(() => {
+            fn(...args);
+            timerId = null;
+          }, delay);
+        }
+      }
+		// lightbox
+
+		// id="current" from <div class="main-img"> 
+		const current = document.querySelector('#current');
+		// image list
+		const imgs = document.querySelectorAll('.imgs img');
+		
+		
+		
+		// image selector
+		imgs.forEach(img =>
+			img.addEventListener('click', e => (current.src = e.target.src)));
+
+		
+
+		for(var i=0; i < imgs.length; i++){
+			imgs[i] = current;
+			boxImgs[imgs];	
+		}
+		
+
+		const box2 = document.querySelector('.container');
+		const boxImgs = box2.querySelectorAll('.slideImgs img')
+		var counter2 = 0;
+		var amount2 = boxImgs.length;
+		var current2 = boxImgs[0];
+		box2.classList.add('active2');
+		
+			
+		
+
+		box2.addEventListener('touchstart', function touchStart(e) {
+        startX = e.targetTouches[0].pageX;
+        // e.preventDefault();  
+      }
+      );
+		
+		//console.log(current.src);
+
+		function navigate2(direction2) {
+			current2.classList.remove('currentImg');
+			counter2 = counter2 + direction2;
+			if (direction2 === -1 && counter2 < 0) {
+				counter2 = amount2 - 1;
+			}
+			if (direction2 === 1 && !boxImgs[counter2]) {
+				counter2 = 0;
+			}
+			current2 = boxImgs[counter2];
+			current2.classList.add('currentImg');
+
+		}
+
+
+
+
+      box2.addEventListener('touchstart', function touchStart(e) {
+        startX = e.targetTouches[0].pageX;
+        // e.preventDefault();  
+      }
+      );
+
+      box2.addEventListener('touchmove' , debounced(250, function  touchMove(e)  {
+        deltaX = e.targetTouches[0].pageX - startX;
+         // console.log(deltaX);
+
+          e.stopImmediatePropagation()
+
+         if (deltaX< 0) {
+                navigate2(1);
+              } 
+         if (deltaX> 0) {
+                navigate2(-1);
+                
+              }
+         }));
+      //starts carousel at first image
+      navigate2(0);
+
+		// open/close modal
+		function openModal() {
+
+			document.querySelector('#current').style.display = "block";
+			document.querySelector('.imgs').style.display = "none";
+								}
+
+		function closeModal() {
+			document.querySelector('#current').style.display = "none";
+			document.querySelector('.imgs').style.display = "block";
+
+		}
+
+		
+	</script>
+</body>	
+</html>

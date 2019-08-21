@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Untitled Document</title>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="w3.css" rel="stylesheet" type="text/css">
+
+<link href="ResponsivTouchSwipe.css" rel="stylesheet" type="text/css">
+ 
+</head>
+
+<body>
+    
+  <div class="carouselbox active">
+      
+   <div class="glyphicon glyphicon-fullscreen" onclick="openModal()"></div>
+
+
+    <div class="buttons">
+      <button class="prev" style="margin-top: 17.8%;
+         padding-right: 70px; float: left; bottom: auto;
+          top: auto;">
+        <div class="left-btn">&lsaquo;</div>
+      </button>
+
+      <button class="next">
+        <div class="right-btn">&rsaquo;</div>
+      </button>
+    </div>
+
+    <ol class="content" style="color:#FCFCFC">
+
+      <li>
+        <div class="numbertext">1 / 10</div>
+        <img src="Images/fountain.JPG" alt="fountain" style="width: 59.5%; height:auto; float: none; margin-top:30px"></li>
+
+      <li>
+        <div class="numbertext">2 / 10</div>
+        <img src="Images/bridge.JPG" alt="bridge" style="width: 100%; height:auto; float: none; padding:8%"></li>
+
+      <li>
+        <div class="numbertext">3 / 10</div>
+         <img src="Images/thomondgate5.JPG" alt="thom5" style="width: 59.5%; height:auto; float: none; margin-top:30px"></li>
+
+      <li>
+        <div class="numbertext">4 / 10</div>
+        <img src="Images/distortion edit.jpg" alt="light" style="width: 59.5%; height:auto; float: none; margin-top:30px"></li>
+    </ol>
+  </div>
+
+
+
+  <div class="row">
+
+    <div class="column">
+      <img src="Images/fountain.JPG"   class="hover-shadow cursor" onclick="openModal();">
+
+      <img src="Images/bridge.JPG"   class="hover-shadow cursor" onclick="openModal();">
+
+      <img src="Images/thomondgate5.JPG" class="hover-shadow cursor" onclick="openModal();">
+
+      <img src="Images/distortion edit.jpg" class="hover-shadow cursor" onclick="openModal();">
+    </div>
+    
+  </div>
+
+  <div id="myModal" class="modal" ontouchmove="hideSwipeHelp()">
+    <span class="close cursor" onclick="closeModal()">&times;</span>
+
+    <div id="sWipe" class="swipeHelp">
+      <div class="l"></div>
+      <div class="r"></div>
+    </div>
+    
+     
+    <ol class="modal-content" style="color:#FCFCFC">
+
+      <li>
+        <div class="numbertext">1 / 10</div>
+        <img src="Images/fountain.JPG"  style="width: 100%; height:auto; float: none; margin-top:30px"></li>
+
+      <li>
+        <div class="numbertext">2 / 10</div>
+        <img src="Images/bridge.JPG"  style="width: 100%; height:auto; float: none;"></li>
+
+      <li>
+        <div class="numbertext">3 / 10</div>
+         <img src="Images/thomondgate5.JPG"  style="width: 100%; height:auto; float: none; margin-top:30px; margin-bottom:30px;"></li>
+
+      <li>
+        <div class="numbertext">4 / 10</div>
+        <img src="Images/distortion edit.jpg"  style="width: 100%; height:auto; float: none; margin-top:30px; margin-bottom:30px;"></li>
+    </ol>
+  </div>
+ 
+<script src= ResponsivTouchSwipe.js></script>
+ 
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+#N canvas 22 213 618 427 10;
+#X obj 47 96 print received;
+#X floatatom 233 70 5 0 0 0 - - -, f 5;
+#X floatatom 146 121 5 0 0 0 - - -, f 5;
+#X floatatom 200 129 5 0 0 0 - - -, f 5;
+#X floatatom 255 130 5 0 0 0 - - -, f 5;
+#X floatatom 310 130 5 0 0 0 - - -, f 5;
+#X floatatom 365 130 5 0 0 0 - - -, f 5;
+#X obj 146 43 netreceive 12000;
+#X obj 146 96 route /motionX /motionY /lerpX /lerpY;
+#X connect 7 0 0 0;
+#X connect 7 0 8 0;
+#X connect 7 1 1 0;
+#X connect 8 0 2 0;
+#X connect 8 1 3 0;
+#X connect 8 2 4 0;
+#X connect 8 3 5 0;
+#X connect 8 4 6 0;
